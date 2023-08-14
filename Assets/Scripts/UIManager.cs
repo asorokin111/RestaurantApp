@@ -16,12 +16,8 @@ public class UIManager : MonoBehaviour
             Instance = this;
         }
     }
-    public void DisableMenu(GameObject menu)
+    public void ToggleMenu(GameObject menu)
     {
-        menu.SetActive(false);
-    }
-    public void EnableMenu(GameObject menu)
-    {
-        menu.SetActive(true);
+        menu.SetActive(!menu.activeSelf);
     }
 }
