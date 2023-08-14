@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/base.uss?fileID=7433441132597879392&amp;guid=2e7cac81a3573974fb008d29071a9a23&amp;type=3#base" />
+    <ui:VisualElement style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Graphics/paper_texture.jpg?fileID=2800000&amp;guid=159215810770ec74c906f173718b78ca&amp;type=3#paper_texture&apos;);">
+        <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1">
+            <ui:Foldout text="Foldout" style="font-size: 50px;" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" style="height: 127px; margin-top: 611px;" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" style="margin-top: 627px;" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" style="margin-top: 1060px;" />
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>
