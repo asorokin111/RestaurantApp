@@ -8,6 +8,18 @@
     -unity-font-definition: url('project://database/Assets/Fonts/Archivo-Medium.ttf?fileID=12800000&guid=7ff71bcf7040d954581c3011db8a4935&type=3#Archivo-Medium');
     flex-direction: column;
     align-self: auto;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
 }
 
 .dishlist {
