@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ravintola_Logo_0: -6473864568415841845
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
