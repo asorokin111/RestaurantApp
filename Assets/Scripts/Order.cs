@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,12 +14,14 @@ public class Order : MonoBehaviour
     private List<FoodItem> _orderList;
     private List<Button> addButtons;
     private List<Button> removeButtons;
+    private Label _costLabel;
 
     private void Start()
     {
         _orderList = new List<FoodItem>();
         _uidoc = GetComponent<UIDocument>();
         var root = _uidoc.rootVisualElement;
+        _costLabel = root.Q<Label>("cost");
         addButtons = root.Query<Button>("addbtn").ToList();
         removeButtons = root.Query<Button>("removebtn").ToList();
         foreach (var button in addButtons)
@@ -65,10 +68,12 @@ public class Order : MonoBehaviour
     public void OnAddItem()
     {
         Debug.Log("Added an item");
+        _costLabel.text = "Total cost: " + GetTotal();
     }
 
     public void OnRemoveItem()
     {
         Debug.Log("Removed an item");
+        _costLabel.text = "Total cost: " + GetTotal();
     }
 }
