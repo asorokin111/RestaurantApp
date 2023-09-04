@@ -392,6 +392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1791915490}
   - component: {fileID: 1791915491}
+  - component: {fileID: 1791915492}
   m_Layer: 5
   m_Name: MainUI
   m_TagString: Untagged
@@ -434,6 +435,18 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 678dcb4df6bd37744b69314122487feb, type: 3}
   m_SortingOrder: 0
+--- !u!114 &1791915492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791915489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a08e20dec3032c64eb31223c513e966b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

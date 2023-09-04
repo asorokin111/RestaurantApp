@@ -11,14 +11,16 @@ public class Order : MonoBehaviour
     private UIDocument _uidoc; // For processing the order after a button is pressed
     private float _sum;
     private List<FoodItem> _orderList;
+    private List<Button> addButtons;
+    private List<Button> removeButtons;
 
     private void Start()
     {
         _orderList = new List<FoodItem>();
         _uidoc = GetComponent<UIDocument>();
         var root = _uidoc.rootVisualElement;
-        List<Button> addButtons = root.Query<Button>("addbtn").ToList();
-        List<Button> removeButtons = root.Query<Button>("removebtn").ToList();
+        addButtons = root.Query<Button>("addbtn").ToList();
+        removeButtons = root.Query<Button>("removebtn").ToList();
         foreach (var button in addButtons)
         {
             button.clickable.clicked += OnAddItem;
@@ -26,6 +28,18 @@ public class Order : MonoBehaviour
         foreach (var button in removeButtons)
         {
             button.clickable.clicked += OnRemoveItem;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var button in addButtons)
+        {
+            button.clickable.clicked -= OnAddItem;
+        }
+        foreach (var button in removeButtons)
+        {
+            button.clickable.clicked -= OnRemoveItem;
         }
     }
 
@@ -50,11 +64,11 @@ public class Order : MonoBehaviour
 
     public void OnAddItem()
     {
-
+        Debug.Log("Added an item");
     }
 
     public void OnRemoveItem()
     {
-        
+        Debug.Log("Removed an item");
     }
 }
