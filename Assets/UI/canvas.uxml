@@ -4,15 +4,15 @@
         <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" style="align-items: stretch; justify-content: flex-start; flex-direction: column; width: auto;">
             <ui:Image style="--unity-image: url(&apos;project://database/Assets/Graphics/Ravintola_Logo.png?fileID=-6473864568415841845&amp;guid=da056c30b5073a54eaafbcbcadce407d&amp;type=3#Ravintola_Logo_0&apos;); width: 204px; height: 204px; margin-left: 21.7%; margin-right: auto; -unity-text-align: upper-left; white-space: normal; text-overflow: clip; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; align-self: auto; align-items: stretch; position: relative;" />
             <ui:Foldout text="Alkuruoat" name="Alkuruoat" value="false" class="dishlist" style="flex-direction: column; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
-                <ui:VisualElement style="flex-grow: 1;">
-                    <ui:Label tabindex="-1" text="Valkosipulileipää ja juustolajitelma&#10;2.50€" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
+                <ui:VisualElement name="fooditem" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="Valkosipulileipää ja juustolajitelma&#10;2.50€" display-tooltip-when-elided="true" name="itemname" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
                     <ui:Image name="item" style="--unity-image: url(&apos;project://database/Assets/Graphics/Items/Focaccia.jpg?fileID=-1988883951532179545&amp;guid=890423af9a5c7044bb55b8cd53bcf109&amp;type=3#Focaccia_0&apos;); width: 204px; height: 204px; margin-left: auto; margin-right: 23%; -unity-text-align: upper-left; white-space: normal; text-overflow: clip; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; align-self: center; align-items: stretch; position: relative; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
                     <ui:Label tabindex="-1" text="Tuoretta rapeaa focaccia leipää ja italialaisia juustoja. (vegaaninen)" display-tooltip-when-elided="true" style="-unity-text-align: upper-left; margin-bottom: 2px; flex-direction: column; justify-content: flex-start; align-self: auto; flex-wrap: nowrap; white-space: normal;" />
                     <ui:Button text="Lisätä" display-tooltip-when-elided="true" name="addbtn" class="garlicbread" />
                     <ui:Button text="Poista" display-tooltip-when-elided="true" name="removebtn" class="garlicbread" />
                 </ui:VisualElement>
-                <ui:VisualElement style="flex-grow: 1;">
-                    <ui:Label tabindex="-1" text="Antipasti lajitelma&#10;8.00€" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
+                <ui:VisualElement name="fooditem" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="Antipasti lajitelma&#10;8.00€" display-tooltip-when-elided="true" name="itemname" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
                     <ui:Image name="item" style="--unity-image: url(&apos;project://database/Assets/Graphics/Items/Antipasti.jpg?fileID=-9207843018309091447&amp;guid=e7c2239da49aab44f9d3b7462473546d&amp;type=3#Antipasti_0&apos;); width: 204px; height: 204px; margin-left: auto; margin-right: 23%; -unity-text-align: upper-left; white-space: normal; text-overflow: clip; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; align-self: auto; align-items: stretch; position: relative; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
                     <ui:Label tabindex="-1" text="Lajitelma parhaita italialaisia leikkeleitä, Aura-juustoa sekä valkosipuli focaccia-leipää. (Laktoositon)" display-tooltip-when-elided="true" style="-unity-text-align: upper-left; margin-bottom: 2px; flex-direction: column; justify-content: flex-start; align-self: auto; flex-wrap: nowrap; white-space: normal;" />
                     <ui:Button text="Lisätä" display-tooltip-when-elided="true" name="addbtn" class="antipasta" />
@@ -20,15 +20,15 @@
                 </ui:VisualElement>
             </ui:Foldout>
             <ui:Foldout text="Pääruoat" value="false" name="Paaruoat" class="dishlist">
-                <ui:VisualElement style="flex-grow: 1;">
-                    <ui:Label tabindex="-1" text="Pasta Bolognese&#10;13.00€" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
+                <ui:VisualElement name="fooditem" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="Pasta Bolognese&#10;13.00€" display-tooltip-when-elided="true" name="itemname" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
                     <ui:Image name="item" style="--unity-image: url(&apos;project://database/Assets/Graphics/Items/Bolognese.jpg?fileID=623718359407764199&amp;guid=87729219fb3e77c46ba22c68467505ec&amp;type=3#Bolognese_0&apos;); width: 204px; height: 204px; margin-left: auto; margin-right: 23%; -unity-text-align: upper-left; white-space: normal; text-overflow: clip; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; align-self: auto; align-items: stretch; position: relative; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
                     <ui:Label tabindex="-1" text="Spagettia, bolognesekastiketta ja parmesaanilastuja. (Laktoositon, vegaaninen)" display-tooltip-when-elided="true" style="-unity-text-align: upper-left; margin-bottom: 2px; flex-direction: column; justify-content: flex-start; align-self: auto; flex-wrap: nowrap; white-space: normal;" />
                     <ui:Button text="Lisätä" display-tooltip-when-elided="true" name="addbtn" class="bolognese" />
                     <ui:Button text="Poista" display-tooltip-when-elided="true" name="removebtn" class="bolognese" />
                 </ui:VisualElement>
-                <ui:VisualElement style="flex-grow: 1;">
-                    <ui:Label tabindex="-1" text="Pizza, Quattro Stagione&#10;10.00€" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
+                <ui:VisualElement name="fooditem" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="Pizza, Quattro Stagione&#10;10.00€" display-tooltip-when-elided="true" name="itemname" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
                     <ui:Image name="item" style="--unity-image: url(&apos;project://database/Assets/Graphics/Items/Pizza_quattro_stagioni.jpg?fileID=-7346628419603868194&amp;guid=951183b3ebbd62e4a8e8fc0801595e0c&amp;type=3#Pizza_quattro_stagioni_0&apos;); width: 204px; height: 204px; margin-left: auto; margin-right: 23%; -unity-text-align: upper-left; white-space: normal; text-overflow: clip; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; align-self: auto; align-items: stretch; position: relative; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
                     <ui:Label tabindex="-1" text="Kinkkua, katkarapuja, tonnikalaa ja tuoreita herkkusieniä. (Laktoositon)" display-tooltip-when-elided="true" style="-unity-text-align: upper-left; margin-bottom: 2px; flex-direction: column; justify-content: flex-start; align-self: auto; flex-wrap: nowrap; white-space: normal;" />
                     <ui:Button text="Lisätä" display-tooltip-when-elided="true" name="addbtn" class="quattrostaggioni" />
@@ -36,29 +36,29 @@
                 </ui:VisualElement>
             </ui:Foldout>
             <ui:Foldout text="Jälkiruoat" value="false" name="Jalkiruoat" class="dishlist">
-                <ui:VisualElement style="flex-grow: 1;">
-                    <ui:Label tabindex="-1" text="Pannacotta&#10;3.00€" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
+                <ui:VisualElement name="fooditem" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="Pannacotta&#10;3.00€" display-tooltip-when-elided="true" name="itemname" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
                     <ui:Image name="item" style="--unity-image: url(&apos;project://database/Assets/Graphics/Items/Pannacotta.jpg?fileID=-4942431119101048933&amp;guid=b1033e3c010ac8341acc3fc5e9783150&amp;type=3#Pannacotta_0&apos;); width: 204px; height: 204px; margin-left: auto; margin-right: 23%; -unity-text-align: upper-left; white-space: normal; text-overflow: clip; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; align-self: auto; align-items: stretch; position: relative; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
                     <ui:Label tabindex="-1" text="Vaniljalla maustettua kermavanukasta ja granaattiomenakastiketta. (Gluteeniton, Laktoositon)" display-tooltip-when-elided="true" style="-unity-text-align: upper-left; margin-bottom: 2px; flex-direction: column; justify-content: flex-start; align-self: auto; flex-wrap: nowrap; white-space: normal;" />
                     <ui:Button text="Lisätä" display-tooltip-when-elided="true" name="addbtn" class="pannacotta" />
                     <ui:Button text="Poista" display-tooltip-when-elided="true" name="removebtn" class="pannacotta" />
                 </ui:VisualElement>
-                <ui:VisualElement style="flex-grow: 1;">
-                    <ui:Label tabindex="-1" text="Gelato&#10;2.50€" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
+                <ui:VisualElement name="fooditem" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="Gelato&#10;2.50€" display-tooltip-when-elided="true" name="itemname" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
                     <ui:Image name="item" style="--unity-image: url(&apos;project://database/Assets/Graphics/Items/Gelato.jpg?fileID=-8701722310426286469&amp;guid=0c26eb75539ab684fab9edf835c08f67&amp;type=3#Gelato_0&apos;); width: 204px; height: 204px; margin-left: auto; margin-right: 23%; -unity-text-align: upper-left; white-space: normal; text-overflow: clip; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; align-self: auto; align-items: stretch; position: relative; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
                     <ui:Label tabindex="-1" text="Italialainen jäätelö, mansikka" display-tooltip-when-elided="true" style="-unity-text-align: upper-left; margin-bottom: 2px; flex-direction: column; justify-content: flex-start; align-self: auto; flex-wrap: nowrap; white-space: normal;" />
                     <ui:Button text="Lisätä" display-tooltip-when-elided="true" name="addbtn" class="gelato" />
                     <ui:Button text="Poista" display-tooltip-when-elided="true" name="removebtn" class="gelato" />
                 </ui:VisualElement>
-                <ui:VisualElement style="flex-grow: 1;">
-                    <ui:Label tabindex="-1" text="Lavazza-kahvi&#10;2.50€" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
+                <ui:VisualElement name="fooditem" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="Lavazza-kahvi&#10;2.50€" display-tooltip-when-elided="true" name="itemname" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
                     <ui:Image name="item" style="--unity-image: url(&apos;project://database/Assets/Graphics/Items/Lavazza.jpg?fileID=-6460516167295192144&amp;guid=7ac6a948aca51f346a59d8684fbfe4b9&amp;type=3#Lavazza_0&apos;); width: 204px; height: 204px; margin-left: auto; margin-right: 23%; -unity-text-align: upper-left; white-space: normal; text-overflow: clip; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; align-self: auto; align-items: stretch; position: relative; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
                     <ui:Label tabindex="-1" text="Aito italialaistyylinen kahvi" display-tooltip-when-elided="true" style="-unity-text-align: upper-left; margin-bottom: 2px; flex-direction: column; justify-content: flex-start; align-self: auto; flex-wrap: nowrap; white-space: normal;" />
                     <ui:Button text="Lisätä" display-tooltip-when-elided="true" name="addbtn" class="lavazza" />
                     <ui:Button text="Poista" display-tooltip-when-elided="true" name="removebtn" class="lavazza" />
                 </ui:VisualElement>
-                <ui:VisualElement style="flex-grow: 1;">
-                    <ui:Label tabindex="-1" text="Ricotta-kakku&#10;5.00€" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
+                <ui:VisualElement name="fooditem" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="Ricotta-kakku&#10;5.00€" display-tooltip-when-elided="true" name="itemname" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
                     <ui:Image name="item" style="--unity-image: url(&apos;project://database/Assets/Graphics/Items/Ricotta.jpg?fileID=8687983676481683875&amp;guid=493105aea7e591f4a9018b52a8665c13&amp;type=3#Ricotta_0&apos;); width: 204px; height: 204px; margin-left: auto; margin-right: 23%; -unity-text-align: upper-left; white-space: normal; text-overflow: clip; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; align-self: auto; align-items: stretch; position: relative; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
                     <ui:Label tabindex="-1" text="Italialainen tuorejuustokakku" display-tooltip-when-elided="true" style="-unity-text-align: upper-left; margin-bottom: 2px; flex-direction: column; justify-content: flex-start; align-self: auto; flex-wrap: nowrap; white-space: normal;" />
                     <ui:Button text="Lisätä" display-tooltip-when-elided="true" name="addbtn" class="ricotta" />
@@ -66,26 +66,26 @@
                 </ui:VisualElement>
             </ui:Foldout>
             <ui:Foldout text="Juomat" value="false" name="Juomat" class="dishlist">
-                <ui:VisualElement style="flex-grow: 1;">
-                    <ui:Label tabindex="-1" text="Punaviini&#10;7.00€" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
+                <ui:VisualElement name="fooditem" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="Punaviini&#10;7.00€" display-tooltip-when-elided="true" name="itemname" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
                     <ui:Image name="item" style="--unity-image: url(&apos;project://database/Assets/Graphics/Items/Red_Wine_Glass.jpg?fileID=3632509288109343308&amp;guid=8de8c359087b2cf4587e06eac91bd57d&amp;type=3#Red_Wine_Glass_0&apos;); width: 204px; height: 204px; margin-left: auto; margin-right: 23%; -unity-text-align: upper-left; white-space: normal; text-overflow: clip; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; align-self: auto; align-items: stretch; position: relative; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
                     <ui:Button text="Lisätä" display-tooltip-when-elided="true" name="addbtn" class="redwine" />
                     <ui:Button text="Poista" display-tooltip-when-elided="true" name="removebtn" class="redwine" />
                 </ui:VisualElement>
-                <ui:VisualElement style="flex-grow: 1;">
-                    <ui:Label tabindex="-1" text="Valkoviini&#10;7.00€" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
+                <ui:VisualElement name="fooditem" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="Valkoviini&#10;7.00€" display-tooltip-when-elided="true" name="itemname" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
                     <ui:Image name="item" style="--unity-image: url(&apos;project://database/Assets/Graphics/Items/White_Wine_Glass.jpg?fileID=6072609580285186246&amp;guid=561edf76fe604fe4ab4fcca948ac2079&amp;type=3#White_Wine_Glass_0&apos;); width: 204px; height: 204px; margin-left: auto; margin-right: 23%; -unity-text-align: upper-left; white-space: normal; text-overflow: clip; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; align-self: auto; align-items: stretch; position: relative; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
                     <ui:Button text="Lisätä" display-tooltip-when-elided="true" name="addbtn" class="whitewine" />
                     <ui:Button text="Poista" display-tooltip-when-elided="true" name="removebtn" class="whitewine" />
                 </ui:VisualElement>
-                <ui:VisualElement style="flex-grow: 1;">
-                    <ui:Label tabindex="-1" text="Peroni-olut&#10;6.00€" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
+                <ui:VisualElement name="fooditem" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="Peroni-olut&#10;6.00€" display-tooltip-when-elided="true" name="itemname" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
                     <ui:Image name="item" style="--unity-image: url(&apos;project://database/Assets/Graphics/Items/Peroni.jpg?fileID=3139996168841420137&amp;guid=643c1ae5bf4df83409f3dfebe7ff80c1&amp;type=3#Peroni_0&apos;); width: 204px; height: 204px; margin-left: auto; margin-right: 23%; -unity-text-align: upper-left; white-space: normal; text-overflow: clip; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; align-self: auto; align-items: stretch; position: relative; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
                     <ui:Button text="Lisätä" display-tooltip-when-elided="true" name="addbtn" class="peroni" />
                     <ui:Button text="Poista" display-tooltip-when-elided="true" name="removebtn" class="peroni" />
                 </ui:VisualElement>
-                <ui:VisualElement style="flex-grow: 1;">
-                    <ui:Label tabindex="-1" text="Cola&#10;3.00€" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
+                <ui:VisualElement name="fooditem" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="Cola&#10;3.00€" display-tooltip-when-elided="true" name="itemname" style="-unity-font-style: bold; margin-left: 0; font-size: 18px;" />
                     <ui:Image name="item" style="--unity-image: url(&apos;project://database/Assets/Graphics/Items/Cola.jpg?fileID=-8648672952895304323&amp;guid=06ec90cc3fb4af64d855295f287e5815&amp;type=3#Cola_0&apos;); width: 204px; height: 204px; margin-left: auto; margin-right: 23%; -unity-text-align: upper-left; white-space: normal; text-overflow: clip; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; align-self: auto; align-items: stretch; position: relative; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
                     <ui:Button text="Lisätä" display-tooltip-when-elided="true" name="addbtn" class="cola" />
                     <ui:Button text="Poista" display-tooltip-when-elided="true" name="removebtn" class="cola" />
