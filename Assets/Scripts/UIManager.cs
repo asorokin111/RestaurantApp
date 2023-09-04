@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
-    public void Awake()
+    public UIDocument UiDoc;
+    
+    private void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -16,8 +19,10 @@ public class UIManager : MonoBehaviour
             Instance = this;
         }
     }
-    public void ToggleMenu(GameObject menu)
+
+    private void Start()
     {
-        menu.SetActive(!menu.activeSelf);
+        
     }
+
 }
