@@ -1,0 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FoodItem
+{
+    public string Name { get; set; } = "Item";
+    public float Price { get; set; } = 0.0f;
+}
