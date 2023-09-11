@@ -116,6 +116,7 @@ public class Order : MonoBehaviour
 
     public void OnRemoveItem(Button clickedButton)
     {
+        // TODO: make FoodItem objects count their amount to facilitate removing them from the order and reduce the number of lines written to json
         Debug.Log("Removed an item");
         _costLabel.text = "Total cost: " + GetTotal() + " euroa";
     }
