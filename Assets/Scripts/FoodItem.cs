@@ -1,4 +1,3 @@
-[System.Serializable]
 public class FoodItem
 {
     public string Name = "Item";
