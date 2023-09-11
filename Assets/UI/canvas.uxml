@@ -92,6 +92,7 @@
                 </ui:VisualElement>
             </ui:Foldout>
             <ui:Label tabindex="-1" text="Total cost: 0" display-tooltip-when-elided="true" name="cost" style="margin-left: 4%;" />
+            <ui:Button text="Confirm" display-tooltip-when-elided="true" name="confirmbtn" />
         </ui:ScrollView>
     </ui:VisualElement>
 </ui:UXML>

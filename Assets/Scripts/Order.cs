@@ -11,6 +11,7 @@ public class Order : MonoBehaviour
     private List<FoodItem> _orderList;
     private List<Button> addButtons;
     private List<Button> removeButtons;
+    private Button _confirmButton;
     private Label _costLabel;
 
     private void Start()
@@ -19,6 +20,8 @@ public class Order : MonoBehaviour
         _uidoc = GetComponent<UIDocument>();
         var root = _uidoc.rootVisualElement;
         _costLabel = root.Q<Label>("cost");
+        _confirmButton = root.Q<Button>("confirmbtn");
+        _confirmButton.clickable.clicked += OnConfirm;
         addButtons = root.Query<Button>("addbtn").ToList();
         removeButtons = root.Query<Button>("removebtn").ToList();
         foreach (var button in addButtons)
@@ -33,6 +36,7 @@ public class Order : MonoBehaviour
 
     private void OnDestroy()
     {
+        _confirmButton.clickable.clicked -= OnConfirm;
         foreach (var button in addButtons)
         {
             button.clickable.clicked -= OnAddItem;
@@ -60,6 +64,11 @@ public class Order : MonoBehaviour
         string price = strArr[1].Replace("€", string.Empty);
         float floatPrice = float.Parse(price, CultureInfo.InvariantCulture.NumberFormat);
         return new FoodItem(name, floatPrice);
+    }
+
+    public void OnConfirm()
+    {
+
     }
 
     public void OnAddItem()
