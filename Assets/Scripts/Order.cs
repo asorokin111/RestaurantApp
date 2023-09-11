@@ -12,7 +12,10 @@ public class Order : MonoBehaviour
     private List<FoodItem> _orderList;
     private List<Button> addButtons;
     private List<Button> removeButtons;
+
     private Button _confirmButton;
+    private Button _cancelButton;
+
     private Button _lastAdded; // Always set to the last addbutton that was pressed
     private Button _lastRemoved; // Always set to the last removebutton that was pressed
     private Label _costLabel;
@@ -24,7 +27,9 @@ public class Order : MonoBehaviour
         var root = _uidoc.rootVisualElement;
         _costLabel = root.Q<Label>("cost");
         _confirmButton = root.Q<Button>("confirmbtn");
+        _cancelButton = root.Q<Button>("cancelbtn");
         _confirmButton.clickable.clicked += OnConfirm;
+        _cancelButton.clickable.clicked += OnCancel;
         addButtons = root.Query<Button>("addbtn").ToList();
         removeButtons = root.Query<Button>("removebtn").ToList();
         foreach (var button in addButtons)
@@ -78,17 +83,23 @@ public class Order : MonoBehaviour
         Debug.Log("Confirmed order");
     }
 
+    public void OnCancel()
+    {
+        _orderList.Clear();
+        _costLabel.text = "Total cost: " + GetTotal() + " euroa";
+    }
+
     public void OnAddItem()
     {
         string itemStr = _lastAdded.hierarchy.parent.Q<Label>().text;
         _orderList.Add(StrToItem(itemStr));
         Debug.Log("Added an item");
-        _costLabel.text = "Total cost: " + GetTotal();
+        _costLabel.text = "Total cost: " + GetTotal() + " euroa";
     }
 
     public void OnRemoveItem()
     {
         Debug.Log("Removed an item");
-        _costLabel.text = "Total cost: " + GetTotal();
+        _costLabel.text = "Total cost: " + GetTotal() + " euroa";
     }
 }
