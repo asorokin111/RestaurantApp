@@ -17,8 +17,6 @@ public class Order : MonoBehaviour
     private Button _confirmButton;
     private Button _cancelButton;
 
-    private Button _lastAdded; // Always set to the last addbutton that was pressed
-    private Button _lastRemoved; // Always set to the last removebutton that was pressed
     private Label _costLabel;
 
     private void Start()
@@ -35,13 +33,11 @@ public class Order : MonoBehaviour
         removeButtons = root.Query<Button>("removebtn").ToList();
         foreach (var button in addButtons)
         {
-            button.clickable.clicked += () => { _lastAdded = button; };
-            button.clickable.clicked += OnAddItem;
+            button.RegisterCallback<ClickEvent>(ev => OnAddItem(button));
         }
         foreach (var button in removeButtons)
         {
-            button.clickable.clicked += () => { _lastRemoved = button; };
-            button.clickable.clicked += OnRemoveItem;
+            button.RegisterCallback<ClickEvent>(ev => OnRemoveItem(button));
         }
     }
 
@@ -50,13 +46,11 @@ public class Order : MonoBehaviour
         _confirmButton.clickable.clicked -= OnConfirm;
         foreach (var button in addButtons)
         {
-            button.clickable.clicked -= OnAddItem;
-            button.clickable.clicked -= () => { _lastAdded = button; };
+            button.UnregisterCallback<ClickEvent>(ev => OnAddItem(button));
         }
         foreach (var button in removeButtons)
         {
-            button.clickable.clicked -= OnRemoveItem;
-            button.clickable.clicked -= () => { _lastRemoved = button; };
+            button.UnregisterCallback<ClickEvent>(ev => OnRemoveItem(button));
         }
     }
 
@@ -113,14 +107,14 @@ public class Order : MonoBehaviour
         _costLabel.text = "Total cost: " + GetTotal() + " euroa";
     }
 
-    public void OnAddItem()
+    public void OnAddItem(Button clickedButton)
     {
-        string itemStr = _lastAdded.hierarchy.parent.Q<Label>().text;
+        string itemStr = clickedButton.hierarchy.parent.Q<Label>().text;
         _orderList.Add(StrToItem(itemStr));
         _costLabel.text = "Total cost: " + GetTotal() + " euroa";
     }
 
-    public void OnRemoveItem()
+    public void OnRemoveItem(Button clickedButton)
     {
         Debug.Log("Removed an item");
         _costLabel.text = "Total cost: " + GetTotal() + " euroa";
