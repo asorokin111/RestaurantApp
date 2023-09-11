@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 
 //Everything related to orders and writing them
 public class Order : MonoBehaviour
@@ -78,9 +79,32 @@ public class Order : MonoBehaviour
         return new FoodItem(name, floatPrice);
     }
 
+    public void WriteOrderToJson()
+    {
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/order.json", string.Empty); // Clear before writing
+
+        if (_orderList.Count <= 0) return; //Probably not the best place for a return but still don't want to deal with "Index out of bounds"
+
+        System.IO.File.AppendAllText(Application.persistentDataPath + "/order.json", "{\"total\":"); // TODO dehardcode this
+        System.IO.File.AppendAllText(Application.persistentDataPath + "/order.json", GetTotal().ToString(CultureInfo.InvariantCulture.NumberFormat));
+        System.IO.File.AppendAllText(Application.persistentDataPath + "/order.json", ",\n\"order\":[\n");
+
+        for (int i = 0; i < _orderList.Count - 1; ++i)
+        {
+            System.IO.File.AppendAllText(Application.persistentDataPath + "/order.json", JsonUtility.ToJson(_orderList[i]));
+            System.IO.File.AppendAllText(Application.persistentDataPath + "/order.json", ",\n");
+        }
+
+        // Have to treat the last item of the list differently for correct formatting
+        System.IO.File.AppendAllText(Application.persistentDataPath + "/order.json", JsonUtility.ToJson(_orderList[_orderList.Count - 1]));
+        System.IO.File.AppendAllText(Application.persistentDataPath + "/order.json", "\n]}");
+    }
+
     public void OnConfirm()
     {
+        WriteOrderToJson();
         Debug.Log("Confirmed order");
+        Debug.Log(Application.persistentDataPath + "/order.json");
     }
 
     public void OnCancel()
@@ -93,7 +117,6 @@ public class Order : MonoBehaviour
     {
         string itemStr = _lastAdded.hierarchy.parent.Q<Label>().text;
         _orderList.Add(StrToItem(itemStr));
-        Debug.Log("Added an item");
         _costLabel.text = "Total cost: " + GetTotal() + " euroa";
     }
 

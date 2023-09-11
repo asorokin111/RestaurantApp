@@ -91,7 +91,7 @@
                     <ui:Button text="Poista" display-tooltip-when-elided="true" name="removebtn" class="cola" />
                 </ui:VisualElement>
             </ui:Foldout>
-            <ui:Label tabindex="-1" text="Total cost: 0" display-tooltip-when-elided="true" name="cost" style="margin-left: 4%;" />
+            <ui:Label tabindex="-1" text="Total cost: 0 euroa" display-tooltip-when-elided="true" name="cost" style="margin-left: 4%;" />
             <ui:Button text="Confirm" display-tooltip-when-elided="true" name="confirmbtn" />
             <ui:Button text="Cancel" display-tooltip-when-elided="true" name="cancelbtn" enable-rich-text="true" />
         </ui:ScrollView>
