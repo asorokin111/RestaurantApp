@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -12,6 +13,8 @@ public class Order : MonoBehaviour
     private List<Button> addButtons;
     private List<Button> removeButtons;
     private Button _confirmButton;
+    private Button _lastAdded; // Always set to the last addbutton that was pressed
+    private Button _lastRemoved; // Always set to the last removebutton that was pressed
     private Label _costLabel;
 
     private void Start()
@@ -26,10 +29,12 @@ public class Order : MonoBehaviour
         removeButtons = root.Query<Button>("removebtn").ToList();
         foreach (var button in addButtons)
         {
+            button.clickable.clicked += () => { _lastAdded = button; };
             button.clickable.clicked += OnAddItem;
         }
         foreach (var button in removeButtons)
         {
+            button.clickable.clicked += () => { _lastRemoved = button; };
             button.clickable.clicked += OnRemoveItem;
         }
     }
@@ -40,10 +45,12 @@ public class Order : MonoBehaviour
         foreach (var button in addButtons)
         {
             button.clickable.clicked -= OnAddItem;
+            button.clickable.clicked -= () => { _lastAdded = button; };
         }
         foreach (var button in removeButtons)
         {
             button.clickable.clicked -= OnRemoveItem;
+            button.clickable.clicked -= () => { _lastRemoved = button; };
         }
     }
 
@@ -68,11 +75,13 @@ public class Order : MonoBehaviour
 
     public void OnConfirm()
     {
-
+        Debug.Log("Confirmed order");
     }
 
     public void OnAddItem()
     {
+        string itemStr = _lastAdded.hierarchy.parent.Q<Label>().text;
+        _orderList.Add(StrToItem(itemStr));
         Debug.Log("Added an item");
         _costLabel.text = "Total cost: " + GetTotal();
     }
