@@ -144,6 +144,6 @@ public class Order : MonoBehaviour
 
     public void updateCost()
     {
-        _costLabel.text = "Total cost: " + GetTotal() + " euroa";
+        _costLabel.text = "Yhteensä: " + GetTotal() + " euroa";
     }
 }
