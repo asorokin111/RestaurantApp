@@ -112,12 +112,11 @@ public class Order : MonoBehaviour
         var item = StrToItem(itemStr);
         foreach ( var i in _orderList )
         {
-            if (i.Name == item.Name) // Looks really awkward
-            {
-                i.addAmount(1);
-                updateCost();
-                return;
-            }
+            if (i.Name != item.Name)
+                continue;
+            i.addAmount(1);
+            updateCost();
+            return;
         }
         _orderList.Add(item);
         updateCost();
@@ -129,16 +128,15 @@ public class Order : MonoBehaviour
         var item = StrToItem(itemStr);
         foreach ( var i in _orderList )
         {
-            if (i.Name == item.Name)
+            if (i.Name != item.Name)
+                continue;
+            i.addAmount(-1);
+            if (i.Amount <= 0)
             {
-                i.addAmount(-1);
-                if (i.Amount <= 0)
-                {
-                    _orderList.Remove(i);
-                }
-                updateCost();
-                return;
+                _orderList.Remove(i);
             }
+            updateCost();
+            return;
         }
     }
 
