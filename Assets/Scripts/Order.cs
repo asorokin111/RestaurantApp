@@ -73,23 +73,26 @@ public class Order : MonoBehaviour
 
     public void WriteOrderToJson()
     {
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/order.json", string.Empty); // Clear before writing
+        string orderPath = Application.persistentDataPath + "/order.json";
+        const string totalCostVarName = "total"; // Name of the json variable used for total cost
+        const string orderArrayName = "order";
+        System.IO.File.WriteAllText(orderPath, string.Empty); // Clear before writing
 
         if (_orderList.Count <= 0) return; //Probably not the best place for a return but still don't want to deal with "Index out of bounds"
 
-        System.IO.File.AppendAllText(Application.persistentDataPath + "/order.json", "{\"total\":"); // TODO dehardcode this
-        System.IO.File.AppendAllText(Application.persistentDataPath + "/order.json", GetTotal().ToString(CultureInfo.InvariantCulture.NumberFormat));
-        System.IO.File.AppendAllText(Application.persistentDataPath + "/order.json", ",\n\"order\":[\n");
+        System.IO.File.AppendAllText(orderPath, "{\"" + totalCostVarName + "\":");
+        System.IO.File.AppendAllText(orderPath, GetTotal().ToString(CultureInfo.InvariantCulture.NumberFormat));
+        System.IO.File.AppendAllText(orderPath, ",\n\"" + orderArrayName + "\":[\n");
 
         for (int i = 0; i < _orderList.Count - 1; ++i)
         {
-            System.IO.File.AppendAllText(Application.persistentDataPath + "/order.json", JsonUtility.ToJson(_orderList[i]));
-            System.IO.File.AppendAllText(Application.persistentDataPath + "/order.json", ",\n");
+            System.IO.File.AppendAllText(orderPath, JsonUtility.ToJson(_orderList[i]));
+            System.IO.File.AppendAllText(orderPath, ",\n");
         }
 
         // Have to treat the last item of the list differently for correct formatting
-        System.IO.File.AppendAllText(Application.persistentDataPath + "/order.json", JsonUtility.ToJson(_orderList[_orderList.Count - 1]));
-        System.IO.File.AppendAllText(Application.persistentDataPath + "/order.json", "\n]}");
+        System.IO.File.AppendAllText(orderPath, JsonUtility.ToJson(_orderList[_orderList.Count - 1]));
+        System.IO.File.AppendAllText(orderPath, "\n]}");
     }
 
     public void OnConfirm()
@@ -129,6 +132,10 @@ public class Order : MonoBehaviour
             if (i.Name == item.Name)
             {
                 i.addAmount(-1);
+                if (i.Amount <= 0)
+                {
+                    _orderList.Remove(i);
+                }
                 updateCost();
                 return;
             }
