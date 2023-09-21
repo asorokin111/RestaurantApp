@@ -95,8 +95,6 @@ public class Order : MonoBehaviour
     public void OnConfirm()
     {
         WriteOrderToJson();
-        Debug.Log("Confirmed order");
-        Debug.Log(Application.persistentDataPath + "/order.json");
     }
 
     public void OnCancel()
