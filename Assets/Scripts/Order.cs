@@ -57,7 +57,7 @@ public class Order : MonoBehaviour
         _sum = 0.0f;
         foreach (FoodItem item in _orderList)
         {
-            _sum += item.Price;
+            _sum += item.Price * item.Amount;
         }
         return _sum;
     }
@@ -68,7 +68,7 @@ public class Order : MonoBehaviour
         string name = strArr[0];
         string price = strArr[1].Replace("€", string.Empty);
         float floatPrice = float.Parse(price, CultureInfo.InvariantCulture.NumberFormat);
-        return new FoodItem(name, floatPrice);
+        return new FoodItem(name, floatPrice, 1);
     }
 
     public void WriteOrderToJson()
@@ -102,20 +102,43 @@ public class Order : MonoBehaviour
     public void OnCancel()
     {
         _orderList.Clear();
-        _costLabel.text = "Total cost: " + GetTotal() + " euroa";
+        updateCost();
     }
 
     public void OnAddItem(Button clickedButton)
     {
         string itemStr = clickedButton.hierarchy.parent.Q<Label>().text;
-        _orderList.Add(StrToItem(itemStr));
-        _costLabel.text = "Total cost: " + GetTotal() + " euroa";
+        var item = StrToItem(itemStr);
+        foreach ( var i in _orderList )
+        {
+            if (i.Name == item.Name) // Looks really awkward
+            {
+                i.addAmount(1);
+                updateCost();
+                return;
+            }
+        }
+        _orderList.Add(item);
+        updateCost();
     }
 
     public void OnRemoveItem(Button clickedButton)
     {
-        // TODO: make FoodItem objects count their amount to facilitate removing them from the order and reduce the number of lines written to json
-        Debug.Log("Removed an item");
+        string itemStr = clickedButton.hierarchy.parent.Q<Label>().text;
+        var item = StrToItem(itemStr);
+        foreach ( var i in _orderList )
+        {
+            if (i.Name == item.Name)
+            {
+                i.addAmount(-1);
+                updateCost();
+                return;
+            }
+        }
+    }
+
+    public void updateCost()
+    {
         _costLabel.text = "Total cost: " + GetTotal() + " euroa";
     }
 }
