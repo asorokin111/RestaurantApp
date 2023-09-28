@@ -17,12 +17,21 @@ public class Order : MonoBehaviour
 
     private Label _costLabel;
 
+    private TextField _nameField;
+    private string _userName;
+
     private void Start()
+    {
+        InitVariables();
+    }
+
+    private void InitVariables()
     {
         _orderList = new List<FoodItem>();
         _uidoc = GetComponent<UIDocument>();
         var root = _uidoc.rootVisualElement;
         _costLabel = root.Q<Label>("cost");
+        _nameField = root.Q<TextField>("namefield");
         _confirmButton = root.Q<Button>("confirmbtn");
         _cancelButton = root.Q<Button>("cancelbtn");
         _confirmButton.clickable.clicked += OnConfirm;
@@ -76,11 +85,13 @@ public class Order : MonoBehaviour
         string orderPath = Application.persistentDataPath + "/order.json";
         const string totalCostVarName = "total"; // Name of the json variable used for total cost
         const string orderArrayName = "order";
+        const string nameVariable = "name";
         System.IO.File.WriteAllText(orderPath, string.Empty); // Clear before writing
 
         if (_orderList.Count <= 0) return; //Probably not the best place for a return but still don't want to deal with "Index out of bounds"
 
-        System.IO.File.AppendAllText(orderPath, "{\"" + totalCostVarName + "\":");
+        System.IO.File.AppendAllText(orderPath, "{\"" + nameVariable + "\":\"" + _userName + "\""); // And everything because unity can't handle nested classes...
+        System.IO.File.AppendAllText(orderPath, ",\n\"" + totalCostVarName + "\":");
         System.IO.File.AppendAllText(orderPath, GetTotal().ToString(CultureInfo.InvariantCulture.NumberFormat));
         System.IO.File.AppendAllText(orderPath, ",\n\"" + orderArrayName + "\":[\n");
 
@@ -97,6 +108,7 @@ public class Order : MonoBehaviour
 
     public void OnConfirm()
     {
+        _userName = _nameField.value;
         WriteOrderToJson();
     }
 

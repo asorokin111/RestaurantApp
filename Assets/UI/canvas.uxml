@@ -92,6 +92,7 @@
                 </ui:VisualElement>
             </ui:Foldout>
             <ui:Label tabindex="-1" text="Yhteensä: 0 euroa" display-tooltip-when-elided="true" name="cost" style="margin-left: 4%;" />
+            <ui:TextField picking-mode="Ignore" label="Nimi" name="namefield" />
             <ui:Button text="Vahvistaa" display-tooltip-when-elided="true" name="confirmbtn" />
             <ui:Button text="Peruuttaa" display-tooltip-when-elided="true" name="cancelbtn" enable-rich-text="true" />
         </ui:ScrollView>
